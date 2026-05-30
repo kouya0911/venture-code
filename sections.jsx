@@ -283,16 +283,50 @@ function Services({ c }) {
         <div className="svc-list" id="proof">
           {s.items.map((it, i) =>
             <Reveal key={i} className="svc">
-              <div className="svc-no">{it.no}</div>
-              <div className="svc-head">
-                <span className="chip accent svc-tag">{it.tag}</span>
-                <h3 className="svc-title">{it.title}</h3>
-                <p className="svc-desc">{it.desc}</p>
+              <div className="svc-main">
+                <div className="svc-no">{it.no}</div>
+                <div className="svc-head">
+                  <span className="chip accent svc-tag">{it.tag}</span>
+                  <h3 className="svc-title">{it.title}</h3>
+                  <p className="svc-desc">{it.desc}</p>
+                </div>
+                <div className="proof">
+                  <span className="proof-label">{s.proof_label}</span>
+                  <p className="proof-text">{highlightNums(it.proof)}</p>
+                  {i === 2 && (
+                    <a className="ig-link" href="https://www.instagram.com/v.code_chuo/" target="_blank" rel="noopener noreferrer">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                      </svg>
+                      @venture.code
+                    </a>
+                  )}
+                </div>
               </div>
-              <div className="proof">
-                <span className="proof-label">{s.proof_label}</span>
-                <p className="proof-text">{highlightNums(it.proof)}</p>
-              </div>
+              {i === 0 && (
+                <div className="svc-gallery">
+                  <div className="svc-gallery-header">
+                    <span className="svc-gallery-eyebrow">SCREENSHOTS</span>
+                    <span className="svc-gallery-sub">実際の開発アプリ画面</span>
+                  </div>
+                  <div className="svc-gallery-images">
+                    {["images/a.jpeg", "images/b.jpeg", "images/c.jpeg"].map((src, idx) => (
+                      <div key={idx} className="svc-screenshot-card">
+                        <div className="svc-screenshot-bar">
+                          <span className="tdot r"></span>
+                          <span className="tdot y"></span>
+                          <span className="tdot g"></span>
+                        </div>
+                        <div className="svc-screenshot-img">
+                          <img src={src} alt={`AIアプリ開発実績 ${idx + 1}`} loading="lazy" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </Reveal>
           )}
         </div>
