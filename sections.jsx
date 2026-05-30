@@ -327,6 +327,26 @@ function Services({ c }) {
                   </div>
                 </div>
               )}
+              {i === 2 && (
+                <div className="svc-gallery">
+                  <div className="svc-gallery-header">
+                    <span className="svc-gallery-eyebrow">SCREENSHOTS</span>
+                    <span className="svc-gallery-sub">実際のSNS運用画面</span>
+                  </div>
+                  <div className="svc-gallery-images">
+                    <div className="svc-screenshot-card svc-screenshot-card--portrait">
+                      <div className="svc-screenshot-bar">
+                        <span className="tdot r"></span>
+                        <span className="tdot y"></span>
+                        <span className="tdot g"></span>
+                      </div>
+                      <div className="svc-screenshot-img">
+                        <img src="images/d.png" alt="Instagram SNS運用実績" loading="lazy" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </Reveal>
           )}
         </div>
@@ -381,11 +401,11 @@ function Contact({ c, accent }) {
             <Reveal delay={2}>
               <div className="ca-item">
                 <span className="ca-k">EMAIL</span>
-                <span className="ca-v"><a href="mailto:hello@venture-code.dev">hello@venture-code.dev</a></span>
+                <span className="ca-v"><a href="mailto:hello@venture-code.dev">v.code-project@gmail.com</a></span>
               </div>
               <div className="ca-item">
                 <span className="ca-k">{c.footer.sns_label}</span>
-                <span className="ca-v"><a href="#">@venture.code</a> <span style={{ color: "var(--text-faint)" }}>(Instagram)</span></span>
+                <span className="ca-v"><a href="#">@v.code-chuo</a> <span style={{ color: "var(--text-faint)" }}>(Instagram)</span></span>
               </div>
               <div className="ca-item">
                 <span className="ca-k">COST</span>

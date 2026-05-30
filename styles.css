@@ -429,6 +429,7 @@ button { font-family: inherit; cursor: pointer; }
   display: block;
 }
 [data-tone="soft"] .svc-screenshot-card { border-radius: 8px; }
+.svc-screenshot-card--portrait { width: 200px; }
 
 /* =====================================================
    FLOW
