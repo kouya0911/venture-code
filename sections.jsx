@@ -327,27 +327,6 @@ function Flow({ c }) {
 /* ===================================================== CONTACT */
 function Contact({ c, accent }) {
   const ct = c.contact;
-  const [vals, setVals] = useState({ company: "", name: "", email: "", category: "", message: "" });
-  const [touched, setTouched] = useState({});
-  const [sent, setSent] = useState(false);
-
-  const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-  const errs = {
-    name: !vals.name.trim(),
-    email: !isEmail(vals.email),
-    message: vals.message.trim().length < 4
-  };
-  const set = (k) => (e) => setVals((v) => ({ ...v, [k]: e.target.value }));
-  const blur = (k) => () => setTouched((t) => ({ ...t, [k]: true }));
-
-  const submit = (e) => {
-    e.preventDefault();
-    setTouched({ name: true, email: true, message: true });
-    if (errs.name || errs.email || errs.message) return;
-    setSent(true);
-  };
-
-  const fieldCls = (k) => `field ${touched[k] && errs[k] ? "invalid" : ""}`;
 
   return (
     <section className="section contact" id="contact">
@@ -375,44 +354,7 @@ function Contact({ c, accent }) {
 
           <Reveal delay={1}>
             <div className="form-card">
-              {sent ?
-                <div className="form-success">
-                  <div className="ok-mark">✓</div>
-                  <p>{ct.success}</p>
-                </div> :
-                <form onSubmit={submit} noValidate>
-                  <div className="form-row2">
-                    <div className="field">
-                      <label>{ct.fields.company}</label>
-                      <input type="text" value={vals.company} onChange={set("company")} placeholder={ct.placeholder.company} />
-                    </div>
-                    <div className={fieldCls("name")}>
-                      <label>{ct.fields.name}<span className="req">*</span></label>
-                      <input type="text" value={vals.name} onChange={set("name")} onBlur={blur("name")} placeholder={ct.placeholder.name} />
-                      <span className="err">required</span>
-                    </div>
-                  </div>
-                  <div className={fieldCls("email")}>
-                    <label>{ct.fields.email}<span className="req">*</span></label>
-                    <input type="email" value={vals.email} onChange={set("email")} onBlur={blur("email")} placeholder={ct.placeholder.email} />
-                    <span className="err">invalid email</span>
-                  </div>
-                  <div className="field">
-                    <label>{ct.fields.category}</label>
-                    <select value={vals.category} onChange={set("category")}>
-                      <option value="">—</option>
-                      {ct.categories.map((cat, i) => <option key={i} value={cat}>{cat}</option>)}
-                    </select>
-                  </div>
-                  <div className={fieldCls("message")}>
-                    <label>{ct.fields.message}<span className="req">*</span></label>
-                    <textarea value={vals.message} onChange={set("message")} onBlur={blur("message")} placeholder={ct.placeholder.message}></textarea>
-                    <span className="err">required</span>
-                  </div>
-                  <button type="submit" className="btn btn-accent btn-lg form-submit">{ct.submit}<span className="arr">→</span></button>
-                  <p className="form-note">{ct.note}</p>
-                </form>
-              }
+              <div className="hs-form-frame" data-region="na2" data-form-id="63fdef18-2f5a-4892-bab8-537f48c7b342" data-portal-id="246346607"></div>
             </div>
           </Reveal>
         </div>
