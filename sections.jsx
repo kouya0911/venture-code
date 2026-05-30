@@ -328,6 +328,14 @@ function Flow({ c }) {
 function Contact({ c, accent }) {
   const ct = c.contact;
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://js-na2.hsforms.net/forms/embed/246346607.js';
+    script.defer = true;
+    document.head.appendChild(script);
+    return () => { document.head.removeChild(script); };
+  }, []);
+
   return (
     <section className="section contact" id="contact">
       <div className="wrap">
